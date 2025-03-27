@@ -11,7 +11,11 @@ paths:
       security:
         - bearerAuth: []
       parameters:
-        - $ref: '#/components/parameters/apikey'
+        - name: apikey
+        in: header
+        required: true
+        schema:
+          type: string
       operationId: createJournalEntry
       summary: Add a new journal entry
       tags: [Journal]
@@ -30,7 +34,11 @@ paths:
       security:
         - bearerAuth: []
       parameters:
-        - $ref: '#/components/parameters/apikey'
+        - name: apikey
+        in: header
+        required: true
+        schema:
+          type: string
       operationId: createEvent
       summary: Add a new event
       tags: [Events]
@@ -49,7 +57,11 @@ paths:
       security:
         - bearerAuth: []
       parameters:
-        - $ref: '#/components/parameters/apikey'
+        - name: apikey
+        in: header
+        required: true
+        schema:
+          type: string
       operationId: addInsight
       summary: Add AI-generated insight to a journal entry
       tags: [Journal]
