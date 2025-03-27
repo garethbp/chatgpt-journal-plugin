@@ -1,0 +1,99 @@
+openapi: 3.0.0
+info:
+  title: Journal Assistant API
+  version: 1.0.0
+servers:
+  - url: https://yourdomain.com  # Replace with your actual domain
+paths:
+  /journal_entries:
+    post:
+      operationId: createJournalEntry
+      summary: Add a new journal entry
+      tags: [Journal]
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/JournalEntry'
+      responses:
+        '201':
+          description: Journal entry created
+
+  /events:
+    post:
+      operationId: createEvent
+      summary: Add a new event
+      tags: [Events]
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Event'
+      responses:
+        '201':
+          description: Event created
+
+  /journal_insights:
+    post:
+      operationId: addInsight
+      summary: Add AI-generated insight to a journal entry
+      tags: [Journal]
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Insight'
+      responses:
+        '201':
+          description: Insight added
+
+components:
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer
+      bearerFormat: JWT
+  schemas:
+    JournalEntry:
+      type: object
+      properties:
+        user_id:
+          type: string
+          format: uuid
+        content:
+          type: string
+        summary:
+          type: string
+        topics:
+          type: array
+          items:
+            type: string
+        media_url:
+          type: string
+        pinned:
+          type: boolean
+
+    Event:
+      type: object
+      properties:
+        user_id:
+          type: string
+        title:
+          type: string
+        description:
+          type: string
+        event_date:
+          type: string
+          format: date
+
+    Insight:
+      type: object
+      properties:
+        journal_entry_id:
+          type: string
+          format: uuid
+        insight:
+          type: string
