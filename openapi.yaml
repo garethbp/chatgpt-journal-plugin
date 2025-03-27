@@ -3,7 +3,7 @@ info:
   title: Journal Assistant API
   version: 1.0.0
 servers:
-  - url: https://yourdomain.com  # Replace with your actual domain
+  - url: https://garethbp.github.io/chatgpt-journal-plugin
 paths:
   /journal_entries:
     post:
