@@ -2,15 +2,15 @@
   "schema_version": "v1",
   "name_for_human": "Smart Journal Assistant",
   "name_for_model": "smart_journal_assistant",
-  "description_for_human": "Journal and track entries, events, and insights with AI.",
-  "description_for_model": "Manage journal entries, events, and AI insights with authenticated access.",
+  "description_for_human": "Manage journal entries, events, and insights securely.",
+  "description_for_model": "Plugin to create and manage journal entries, events, and insights using bearer token authentication.",
   "auth": {
     "type": "user_http",
     "authorization_type": "bearer"
   },
   "api": {
     "type": "openapi",
-    "url": "https://garethbp.github.io/chatgpt-journal-plugin/openapi.yaml"
+    "url": "https://garethbp.github.io/chatgpt-journal-plugin/openapi_supabase_final.yaml"
   },
   "logo_url": "https://garethbp.github.io/chatgpt-journal-plugin/logo.png",
   "contact_email": "you@example.com",
