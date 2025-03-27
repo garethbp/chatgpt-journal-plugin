@@ -8,17 +8,17 @@ servers:
 paths:
   /journal_entries:
     post:
+      operationId: createJournalEntry
+      summary: Add a new journal entry
+      tags: [Journal]
       security:
         - bearerAuth: []
       parameters:
         - name: apikey
-        in: header
-        required: true
-        schema:
-          type: string
-      operationId: createJournalEntry
-      summary: Add a new journal entry
-      tags: [Journal]
+          in: header
+          required: true
+          schema:
+            type: string
       requestBody:
         required: true
         content:
@@ -31,17 +31,17 @@ paths:
 
   /events:
     post:
+      operationId: createEvent
+      summary: Add a new event
+      tags: [Events]
       security:
         - bearerAuth: []
       parameters:
         - name: apikey
-        in: header
-        required: true
-        schema:
-          type: string
-      operationId: createEvent
-      summary: Add a new event
-      tags: [Events]
+          in: header
+          required: true
+          schema:
+            type: string
       requestBody:
         required: true
         content:
@@ -54,17 +54,17 @@ paths:
 
   /journal_insights:
     post:
+      operationId: addInsight
+      summary: Add AI-generated insight to a journal entry
+      tags: [Journal]
       security:
         - bearerAuth: []
       parameters:
         - name: apikey
-        in: header
-        required: true
-        schema:
-          type: string
-      operationId: addInsight
-      summary: Add AI-generated insight to a journal entry
-      tags: [Journal]
+          in: header
+          required: true
+          schema:
+            type: string
       requestBody:
         required: true
         content:
@@ -81,13 +81,6 @@ components:
       type: http
       scheme: bearer
       bearerFormat: JWT
-  parameters:
-    apikey:
-      name: apikey
-      in: header
-      required: true
-      schema:
-        type: string
   schemas:
     JournalEntry:
       type: object
