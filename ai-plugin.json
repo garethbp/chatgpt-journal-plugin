@@ -10,7 +10,7 @@
   },
   "api": {
     "type": "openapi",
-    "url": "https://garethbp.github.io/chatgpt-journal-plugin/openapi_supabase_final.yaml"
+    "url": "https://garethbp.github.io/chatgpt-journal-plugin/openapi.yaml"
   },
   "logo_url": "https://garethbp.github.io/chatgpt-journal-plugin/logo.png",
   "contact_email": "you@example.com",
