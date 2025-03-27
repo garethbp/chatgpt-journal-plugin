@@ -1,13 +1,17 @@
 openapi: 3.1.0
 info:
   title: Journal Assistant API
-  version: 1.0.0
+  version: 2.0.0
 jsonSchemaDialect: https://json-schema.org/draft/2020-12/schema
 servers:
   - url: https://ptglegpphtedkqrbzjym.supabase.co/rest/v1
 paths:
   /journal_entries:
     post:
+      security:
+        - bearerAuth: []
+      parameters:
+        - $ref: '#/components/parameters/apikey'
       operationId: createJournalEntry
       summary: Add a new journal entry
       tags: [Journal]
@@ -23,6 +27,10 @@ paths:
 
   /events:
     post:
+      security:
+        - bearerAuth: []
+      parameters:
+        - $ref: '#/components/parameters/apikey'
       operationId: createEvent
       summary: Add a new event
       tags: [Events]
@@ -38,6 +46,10 @@ paths:
 
   /journal_insights:
     post:
+      security:
+        - bearerAuth: []
+      parameters:
+        - $ref: '#/components/parameters/apikey'
       operationId: addInsight
       summary: Add AI-generated insight to a journal entry
       tags: [Journal]
@@ -57,6 +69,13 @@ components:
       type: http
       scheme: bearer
       bearerFormat: JWT
+  parameters:
+    apikey:
+      name: apikey
+      in: header
+      required: true
+      schema:
+        type: string
   schemas:
     JournalEntry:
       type: object
